@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Bot, Menu, X } from 'lucide-react';
 import { LanguageSwitch } from '../ui/LanguageSwitch';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { Button } from '../ui/Button';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,38 +21,35 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center">
               <Bot className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
               AI ChatBot Pro
             </span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
             <LanguageSwitch />
-            <a href="#features" className="text-gray-600 hover:text-indigo-600 transition-colors">
+            <a href="#features" className="text-gray-700 hover:text-indigo-600 transition-colors">
               {t('nav.features')}
             </a>
-            <a href="#pricing" className="text-gray-600 hover:text-indigo-600 transition-colors">
+            <a href="#pricing" className="text-gray-700 hover:text-indigo-600 transition-colors">
               {t('nav.pricing')}
             </a>
-            <a
-              href="#contact"
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300"
-            >
+            <Button href="#contact">
               {t('nav.getStarted')}
-            </a>
+            </Button>
           </div>
 
           <button
-            className="md:hidden text-gray-600"
+            className="md:hidden text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -64,25 +62,21 @@ export default function Header() {
               <LanguageSwitch />
               <a
                 href="#features"
-                className="text-gray-600 hover:text-indigo-600 transition-colors"
+                className="text-gray-700 hover:text-indigo-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.features')}
               </a>
               <a
                 href="#pricing"
-                className="text-gray-600 hover:text-indigo-600 transition-colors"
+                className="text-gray-700 hover:text-indigo-600 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.pricing')}
               </a>
-              <a
-                href="#contact"
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full text-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Button href="#contact" onClick={() => setIsMenuOpen(false)}>
                 {t('nav.getStarted')}
-              </a>
+              </Button>
             </div>
           </div>
         )}
