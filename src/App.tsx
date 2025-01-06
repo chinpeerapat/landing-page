@@ -18,7 +18,10 @@ function App() {
           <Contact />
         </main>
         <footer className="bg-gray-900 text-white py-12">
-          {/* Footer content remains the same */}
+          {/* Footer content */}
+          <div className="container mx-auto px-6 text-center">
+            <p>&copy; {new Date().getFullYear()} AI ChatBot Pro. All rights reserved.</p>
+          </div>
         </footer>
       </div>
     </LanguageProvider>
