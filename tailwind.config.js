@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Inter"', 'sans-serif'],
+        sans: ['"IBM Plex Sans Thai Looped"', 'sans-serif'],
       },
       colors: {
         primary: {
